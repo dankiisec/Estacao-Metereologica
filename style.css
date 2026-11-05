@@ -1,0 +1,101 @@
+:root {
+--bg: #0f1419;
+--card: #1a2028;
+--line: #2a3441;
+--text: #e6edf3;
+--muted: #8b98a5;
+--accent: #2dd4bf;
+--lux: #fbbf24;
+--temp: #60a5fa;
+--umid: #22d3ee;
+--pres: #a78bfa;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+background: var(--bg);
+color: var(--text);
+font-family: Inter, system-ui, -apple-system, sans-serif;
+padding: 24px;
+min-height: 100vh;
+}
+
+.topbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 16px;
+margin-bottom: 28px;
+}
+
+h1 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+.sub { color: var(--muted); font-size: 0.875rem; margin-top: 4px; }
+
+.status { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: var(--muted); }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: #ef4444; transition: background .3s; }
+.dot.on { background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+gap: 16px;
+margin-bottom: 24px;
+}
+
+.card {
+background: var(--card);
+border: 1px solid var(--line);
+border-radius: 12px;
+padding: 20px;
+display: flex;
+flex-direction: column;
+gap: 6px;
+position: relative;
+overflow: hidden;
+}
+
+.card::before {
+content: '';
+position: absolute;
+inset: 0 auto 0 0;
+width: 3px;
+background: var(--accent);
+}
+
+.card[data-metric="LUX"]::before { background: var(--lux); }
+.card[data-metric="TEMP"]::before { background: var(--temp); }
+.card[data-metric="UMID"]::before { background: var(--umid); }
+.card[data-metric="PRES"]::before { background: var(--pres); }
+
+.label { color: var(--muted); font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+.value {
+font-family: 'JetBrains Mono', ui-monospace, monospace;
+font-size: 2.25rem;
+font-weight: 600;
+line-height: 1.1;
+transition: color .2s;
+}
+
+.unit { color: var(--muted); font-size: 0.875rem; }
+
+.chart-wrap {
+background: var(--card);
+border: 1px solid var(--line);
+border-radius: 12px;
+padding: 20px;
+}
+
+.chart-wrap h2 { font-size: 1rem; font-weight: 500; margin-bottom: 16px; color: var(--muted); }
+.chart-box { position: relative; height: 320px; }
+
+.foot { margin-top: 20px; color: var(--muted); font-size: 0.8125rem; text-align: center; }
+
+@media (max-width: 600px) {
+body { padding: 16px; }
+.value { font-size: 1.75rem; }
+h1 { font-size: 1.25rem; }
+.chart-box { height: 240px; }
+}

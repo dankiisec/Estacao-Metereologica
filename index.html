@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Estação de Sensores — Monitor</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header class="topbar">
+
+<h1>Estação de Sensores</h1>
+VEML7700 + AHT20 + BMP280
+
+
+
+
+
+
+
+Conectando...
+
+
+
+</header>
+
+<main class="grid">
+
+Luminosidade
+**--**
+lux
+
+
+
+
+
+Temperatura
+**--**
+°C
+
+
+
+
+
+Umidade
+**--**
+%
+
+
+
+
+
+Pressão
+**--**
+hPa
+
+
+
+</main>
+
+
+<h2>Histórico (últimos 5 minutos)</h2>
+
+<canvas id="grafico"></canvas>
+
+
+
+
+
+
+
+<footer class="foot">
+Aguardando dados...
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
